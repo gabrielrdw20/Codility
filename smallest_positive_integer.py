@@ -46,7 +46,7 @@ def solution(A):
         
     filtr = [x for x in A if x >= 0]
     
-    # case 1: all numbers are negative
+    # all numbers are negative
     if len(filtr) == 0:
         return 1
     
@@ -63,7 +63,7 @@ def solution(A):
     if 0 in data:
         data.remove(0)
             
-    # case 2: smallest missing number will be always 1 if not in list
+    # the smallest missing number will be always 1 if not in list or if only 1 in list (one item)
     minimum = min(data)
     if minimum != 1:
         return 1
