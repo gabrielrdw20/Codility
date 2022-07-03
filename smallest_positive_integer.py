@@ -1,6 +1,5 @@
-
 '''
-DEMO TASK Codility
+TEST TASK Codility
 
 Write a function: def solution(A) that, given an array A of N integers, returns the smallest positive integer (greater than 0) that does not occur in A.
 For example, given A = [1, 3, 6, 4, 1, 2], the function should return 5.
@@ -14,39 +13,32 @@ Write an efficient algorithm for the following assumptions:
 '''
 
 def test1():
-    input_list = [-1, 0, 2, 3, 4, 5, 6]
-    val = solution(input_list)
-    assert val == 1, f"Błąd: {val}"
+    outcome = solution([-1, 0, 2, 3, 4, 5, 6])
+    assert outcome == 1, f"Error: {outcome}"
     
 def test2():
-    input_list = [-5, -4, -3, -1, 0, 1, 2]
-    val = solution(input_list)
-    assert val == 3, f"Błąd: {val}"
+    outcome = solution([-5, -4, -3, -1, 0, 1, 2])
+    assert outcome == 3, f"Error: {outcome}"
     
 def test3():
-    input_list = [-1, 0, 2, 3, 4, 6]
-    val = solution(input_list)
-    assert val == 1, f"Błąd: {val}"
+    outcome = solution([-1, 0, 2, 3, 4, 6])
+    assert outcome == 1, f"Error: {outcome}"
     
 def test4():
-    input_list = [-1,-22, -89, -76, -3, -1]
-    val = solution(input_list)
-    assert val == 1, f"Błąd: {val}"
+    outcome = solution([-1, -22, -89, -76, -3, -1])
+    assert outcome == 1, f"Error: {outcome}"
     
 def test5():
-    input_list = [6,8,1,-3,4,0,-21]
-    val = solution(input_list)
-    assert val == 3, f"Błąd: {val}"
+    outcome = solution([6, 8, 1, -3, 4, 0, -21])
+    assert outcome == 3, f"Error: {outcome}"
     
 def test6():
-    input_list = [-1,3,4,5,6]
-    val = solution(input_list)
-    assert val == 1, f"Błąd: {val}"
+    outcome = solution([-1, 3, 4, 5, 6])
+    assert outcome == 1, f"Error: {outcome}"
     
 def test7():
-    input_list = [0,1,2,3,4,5,6]
-    val = solution(input_list)
-    assert val == 7, f"Błąd: {val}"  
+    outcome = solution([0, 1, 2, 3, 4, 5, 6])
+    assert outcome == 7, f"Error: {outcome}"  
 
 def solution(A):
     if not isinstance(A, list):
@@ -83,15 +75,13 @@ def solution(A):
     
     try:
         for i, _ in enumerate(data):
+            # e.g. [1,3,4,5] check if 3-1 > 1
             if data[i+1]-data[i]>1:
                 return data[i+1]-1
     except:
         return maximum+1
 
     
-
-    
-
 data  = [-1, 0, 1, 2, 3, 5]
 print("Data: ", solution(data))
 
