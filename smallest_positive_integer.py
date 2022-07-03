@@ -11,6 +11,7 @@ Write an efficient algorithm for the following assumptions:
 * N is an integer within the range [1..100,000];
 * each element of array A is an integer within the range [−1,000,000..1,000,000].
 '''
+import random 
 
 def test1():
     outcome = solution([-1, 0, 2, 3, 4, 5, 6])
@@ -30,7 +31,7 @@ def test4():
     
 def test5():
     outcome = solution([6, 8, 1, -3, 4, 0, -21])
-    assert outcome == 3, f"Error: {outcome}"
+    assert outcome == 2, f"Error: {outcome}"
     
 def test6():
     outcome = solution([-1, 3, 4, 5, 6])
@@ -46,7 +47,7 @@ def solution(A):
         
     filtr = [x for x in A if x >= 0]
     
-    # all numbers are negative
+    # case 1: all numbers are negative
     if len(filtr) == 0:
         return 1
     
@@ -56,14 +57,14 @@ def solution(A):
     
     # if 1 return 1 else if bigger return 1
     if len(filtr) == 1 and filtr[0] > 0:
-        return 1
+        return filtr[0]
     
     data = sorted(list(set(filtr)))
     
     if 0 in data:
         data.remove(0)
             
-    # the smallest missing number will be always 1 if not in list or if only 1 in list (one item)
+    # case 2: smallest missing number will be always 1 if not in list
     minimum = min(data)
     if minimum != 1:
         return 1
@@ -77,12 +78,12 @@ def solution(A):
         for i, _ in enumerate(data):
             # e.g. [1,3,4,5] check if 3-1 > 1
             if data[i+1]-data[i]>1:
-                return data[i+1]-1
+                return data[i]+1
     except:
         return maximum+1
 
     
-data  = [-1, 0, 1, 2, 3, 5]
+data  = [1,2,3,4,6,7,8,9,10,71]
 print("Data: ", solution(data))
 
 test1()
